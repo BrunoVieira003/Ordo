@@ -13,8 +13,9 @@
     --header-color: #1a1a1d;
     --form-color: #141416;
     --input-color: #ececec34;
-    --text-color: #ececec;
+    --text-color: #e7e5e5;
     --primary-color: #e56fb2;
+    /* --secondary-color: #16b177; */
 }
 
 body{
@@ -31,20 +32,16 @@ header{
     width: 100vw;
     height: 10vh;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 3vh;
     background-color: var(--header-color);
 }
 
 header > nav{
     display: flex;
-    width: 90%;
+    width: 20%;
     justify-content: space-evenly;
     align-items: center;
-}
-
-header > nav a:first-child{
-    font-size: 3rem;
 }
 
 header a{
@@ -52,6 +49,10 @@ header a{
     color: var(--primary-color);
     text-decoration: none;
     transition: all .1s;
+}
+
+header > a{
+    font-size: 3rem;
 }
 
 header a:hover{
@@ -85,7 +86,7 @@ form > label{
 }
 
 form > input{
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 8px;
     margin-bottom: 5%;
     color: var(--text-color);
@@ -96,13 +97,25 @@ form > input{
 }
 
 form > input:focus{
+    color: white;
     outline: 2px solid var(--primary-color);
 }
 
 form > input[type=submit]{
+    font-size: 1.3rem;
     margin: 0 auto;
     outline: none;
     color: var(--text-color);
+}
+
+form > a{
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 5vh;
+}
+
+form > a:hover{
+    color: var(--primary-color);
 }
 
 #landing-page{
