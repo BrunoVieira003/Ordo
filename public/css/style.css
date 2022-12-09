@@ -8,6 +8,8 @@
 }
 
 :root{
+    --transparent-hover: rgba(255, 255, 255, 0.07);
+    --transparent-click: rgba(255, 255, 255, 0.15);
     --bg-color: #21222c;
     --heading-color: #e56fb2;
     --header-color: #1a1a1d;
@@ -37,11 +39,47 @@ header{
     background-color: var(--header-color);
 }
 
-header > nav{
-    display: flex;
+.navbar{
+    display: none;
     width: 20%;
     justify-content: space-evenly;
     align-items: center;
+}
+
+#menu-controller{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 10vh;
+    width: 10vh;
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+}
+
+#menu-controller:hover{
+    background-color: var(--transparent-hover);
+}
+
+#menu-controller:active{
+    background-color: var(--transparent-click);
+}
+
+.responsive-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    text-align: left;
+    width: 50vw;
+    background-color: var(--header-color);
+    transition: all .2s;
+}
+
+.responsive-menu > a{
+    padding: 3vh 3vw;
 }
 
 header a{
@@ -62,8 +100,7 @@ header a:hover{
 form{
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-    max-width: 800px;
+    width: 90vw;
     padding: 3vw 4vh 3vw;
     margin: 0 auto;
     border-radius: 4px;
@@ -91,7 +128,7 @@ form > input{
     margin-bottom: 5%;
     color: var(--text-color);
     border: none;
-    border-radius: 6px;
+    border-radius: 3px;
     outline: 1px solid var(--input-color);
     background-color: transparent;
 }
@@ -159,4 +196,26 @@ form > a:hover{
     background-color: transparent;
     color: var(--primary-color);
     outline: 1px solid var(--primary-color);
+}
+
+@media (min-width:640px) {
+    form{
+        width: 70vw;
+    }
+}
+
+@media (min-width:900px) {
+    .navbar{
+        display: flex;
+    }
+
+    #menu-controller{
+        display: none;
+    }
+}
+
+@media (min-width:1200px) {
+    form{
+        width: 40vw;
+    }
 }
