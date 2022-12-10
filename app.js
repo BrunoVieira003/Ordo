@@ -1,24 +1,20 @@
-import  express  from "express";
+const express = require('express')
+const homeRoute = require('./routes/home')
+const usersRoutes = require('./routes/users')
 
 const app = express();
 const port = 3000;
 
+// Set views directory / engine
 app.set('view engine', 'ejs');
 app.set('views', './views')
 
+// Set static files directory
 app.use(express.static('public'))
 
-app.get('/', (req, res)=>{
-    res.render('home');
-})
-
-app.get('/login', (req, res)=>{
-    res.render('users/login');
-})
-
-app.get('/register', (req, res)=>{
-    res.render('users/register');
-})
+// Set routes
+app.use(homeRoute)
+app.use(usersRoutes)
 
 app.listen(port, ()=>{
     console.log(`Server running on port ${port}`);
