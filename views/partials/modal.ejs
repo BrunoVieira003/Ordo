@@ -1,5 +1,5 @@
 <% if (message){ %>
-    <div class="modal">
-        <p><%= message %></p>
+    <div class="modal-<%= message.type %>">
+        <p><%= message.info %></p>
     </div>
 <% } %>

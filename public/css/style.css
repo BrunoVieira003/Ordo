@@ -199,18 +199,25 @@ form > a:hover{
     outline: 1px solid var(--primary-color);
 }
 
-.modal{
+[class^='modal-']{
     border-radius: 4px;
     text-align: center;
     margin: 0 auto 3vh;
     width: 90vw;
     padding: 2vh;
     color: var(--text-color);
-    background-color: var(--error-color);
 }
 
 .modal > p{
     font-size: calc(1.2rem + 0.5vw);
+}
+
+.modal-error{
+    background-color: var(--error-color);
+}
+
+.modal-success{
+    background-color: var(--success-color);
 }
 
 @media (min-width:640px) {
@@ -218,7 +225,7 @@ form > a:hover{
         width: 70vw;
     }
 
-    .modal{
+    [class^='modal-']{
         width: 75vw;
     }
 }
@@ -238,7 +245,7 @@ form > a:hover{
         width: 40vw;
     }
 
-    .modal{
+    [class^='modal-']{
         width: 45vw;
     }
 }

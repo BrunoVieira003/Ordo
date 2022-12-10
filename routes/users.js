@@ -14,14 +14,15 @@ router.post('/login', async (req, res, next)=>{
         [Op.or]: [{name: username}, {email: username}]
     }})
     if(!user){
-        req.session.message = "Usuário não encontrado! Tente novamente"
+        req.session.message = {info: "Usuário não encontrado! Tente novamente", type: 'error'}
         res.redirect('/login')
     }else if(user.password != password){
-        req.session.message = "Senha incorreta! Tente novamente"
+        req.session.message = {info: "Senha incorreta! Tente novamente", type: 'error'}
         res.redirect('/login')
     }else{
         req.session.user = user
-        res.render('home');
+        req.session.message = {info: "Você entrou!", type: 'success'}
+        res.redirect('/');
     }
 })
 
@@ -32,7 +33,7 @@ router.get('/register', (req, res, next)=>{
 router.post('/register', async (req, res, next)=>{
     const {username, email, password, c_password} = req.body
     if (password != c_password) {
-        req.session.message = 'As senhas não combinam! Digite novamente'
+        req.session.message = {info: 'As senhas não combinam! Digite novamente', type: 'error'}
         res.redirect('/register')
     }else{
         try {
@@ -41,14 +42,15 @@ router.post('/register', async (req, res, next)=>{
                 password: password,
                 email: email
             })
+            req.session.message = {info: "Conta criada com sucesso!", type: 'success'}
             res.redirect('/login')
         } catch(error){
             if (error.name == 'SequelizeUniqueConstraintError') {
                 if (error.errors[0].path == 'name') {
-                    req.session.message = 'Nome de usuário já está em uso! Tente outro'
+                    req.session.message = {info: 'Nome de usuário já está em uso! Tente outro', type: 'error'}
                     res.redirect('/register')
                 }else{
-                    req.session.message = 'Esse email já pertence a uma conta!'
+                    req.session.message = {info: 'Esse email já pertence a uma conta!', type: 'error'}
                     res.redirect('/register')
                 }
             }
