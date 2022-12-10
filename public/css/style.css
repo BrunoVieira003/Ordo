@@ -17,7 +17,8 @@
     --input-color: #ececec34;
     --text-color: #e7e5e5;
     --primary-color: #e56fb2;
-    /* --secondary-color: #16b177; */
+    --success-color: #16b177;
+    --error-color: #e94949;
 }
 
 body{
@@ -198,9 +199,27 @@ form > a:hover{
     outline: 1px solid var(--primary-color);
 }
 
+.modal{
+    border-radius: 4px;
+    text-align: center;
+    margin: 0 auto 3vh;
+    width: 90vw;
+    padding: 2vh;
+    color: var(--text-color);
+    background-color: var(--error-color);
+}
+
+.modal > p{
+    font-size: calc(1.2rem + 0.5vw);
+}
+
 @media (min-width:640px) {
     form{
         width: 70vw;
+    }
+
+    .modal{
+        width: 75vw;
     }
 }
 
@@ -217,5 +236,9 @@ form > a:hover{
 @media (min-width:1200px) {
     form{
         width: 40vw;
+    }
+
+    .modal{
+        width: 45vw;
     }
 }

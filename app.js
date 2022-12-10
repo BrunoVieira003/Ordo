@@ -29,6 +29,13 @@ app.use(methodOverride('_method'))
 // Session config
 app.use(session({secret: "mysecretkey"}))
 
+// Modal messages config
+app.use((req, res, next)=>{
+    res.locals.message = req.session.message
+    delete req.session.message
+    next()
+})
+
 // Set routes
 app.use(homeRoute)
 app.use(usersRoutes)

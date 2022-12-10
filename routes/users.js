@@ -14,9 +14,11 @@ router.post('/login', async (req, res, next)=>{
         [Op.or]: [{name: username}, {email: username}]
     }})
     if(!user){
-        res.send("Usuário não encontrado! Tente novamente")
+        req.session.message = "Usuário não encontrado! Tente novamente"
+        res.redirect('/login')
     }else if(user.password != password){
-        res.send("Senha incorreta! Tente novamente")
+        req.session.message = "Senha incorreta! Tente novamente"
+        res.redirect('/login')
     }else{
         req.session.user = user
         res.render('home');
@@ -30,7 +32,8 @@ router.get('/register', (req, res, next)=>{
 router.post('/register', async (req, res, next)=>{
     const {username, email, password, c_password} = req.body
     if (password != c_password) {
-        res.send('As senhas não combinam! Digite novamente')
+        req.session.message = 'As senhas não combinam! Digite novamente'
+        res.redirect('/register')
     }else{
         try {
             const user = await User.create({
@@ -42,9 +45,11 @@ router.post('/register', async (req, res, next)=>{
         } catch(error){
             if (error.name == 'SequelizeUniqueConstraintError') {
                 if (error.errors[0].path == 'name') {
-                    res.send('Nome de usuário já está em uso! Tente outro')
+                    req.session.message = 'Nome de usuário já está em uso! Tente outro'
+                    res.redirect('/register')
                 }else{
-                    res.send('Esse email já pertence a uma conta!')
+                    req.session.message = 'Esse email já pertence a uma conta!'
+                    res.redirect('/register')
                 }
             }
         }
