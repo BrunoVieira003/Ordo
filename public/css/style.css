@@ -208,7 +208,7 @@ form > a:hover{
     color: var(--text-color);
 }
 
-.modal > p{
+[class^='modal-'] > p{
     font-size: calc(1.2rem + 0.5vw);
 }
 
