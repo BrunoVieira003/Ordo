@@ -9,15 +9,15 @@ app.set('views', './views')
 app.use(express.static('public'))
 
 app.get('/', (req, res)=>{
-    res.render('pages/home');
+    res.render('home');
 })
 
 app.get('/login', (req, res)=>{
-    res.render('pages/login');
+    res.render('users/login');
 })
 
 app.get('/register', (req, res)=>{
-    res.render('pages/register');
+    res.render('users/register');
 })
 
 app.listen(port, ()=>{
