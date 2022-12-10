@@ -1,6 +1,8 @@
 const express = require('express')
 const homeRoute = require('./routes/home')
 const usersRoutes = require('./routes/users')
+const methodOverride = require('method-override')
+const session = require('express-session')
 
 const app = express();
 const port = 3000;
@@ -10,7 +12,7 @@ const port = 3000;
     const database = require('./db')
     const User = require('./models/User')
 
-    await database.sync()
+    await database.sync({force:true})
 })();
 
 // Set views directory / engine
@@ -19,6 +21,13 @@ app.set('views', './views')
 
 // Set static files directory
 app.use(express.static('public'))
+
+// Forms needed configs
+app.use(express.urlencoded({'extended':true}))
+app.use(methodOverride('_method'))
+
+// Session config
+app.use(session({secret: "mysecretkey"}))
 
 // Set routes
 app.use(homeRoute)
