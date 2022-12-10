@@ -1,5 +1,7 @@
+<script src="js/modal.js" type="module" defer></script>
 <% if (message){ %>
     <div class="modal-<%= message.type %>">
+        <i class="fa-solid fa-x fa-lg"></i>
         <p><%= message.info %></p>
     </div>
 <% } %>

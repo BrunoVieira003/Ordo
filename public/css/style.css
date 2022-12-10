@@ -200,6 +200,9 @@ form > a:hover{
 }
 
 [class^='modal-']{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-radius: 4px;
     text-align: center;
     margin: 0 auto 3vh;
@@ -210,6 +213,16 @@ form > a:hover{
 
 [class^='modal-'] > p{
     font-size: calc(1.2rem + 0.5vw);
+    flex-grow: 2;
+}
+
+[class^='modal-'] > i{
+    font-size: calc(1.1rem + 0.5vw);
+    cursor: pointer;
+}
+
+[class^='modal-'] > i:hover{
+    color: var(--bg-color);
 }
 
 .modal-error{
