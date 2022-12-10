@@ -12,7 +12,7 @@ const port = 3000;
     const database = require('./db')
     const User = require('./models/User')
 
-    await database.sync({force:true})
+    await database.sync()
 })();
 
 // Set views directory / engine
