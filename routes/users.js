@@ -1,10 +1,12 @@
 const express = require('express')
 const User = require('../models/User')
 const { Op } = require("sequelize");
+const { only_anonymous } = require('../utils/users')
 
 const router = express.Router()
 
 router.get('/login', async (req, res, next)=>{
+    only_anonymous(req, res)
     res.render('users/login');
 })
 
@@ -22,11 +24,12 @@ router.post('/login', async (req, res, next)=>{
     }else{
         req.session.user = user
         req.session.message = {info: "Você entrou!", type: 'success'}
-        res.redirect('/');
+        res.redirect('/dashboard');
     }
 })
 
 router.get('/register', (req, res, next)=>{
+    only_anonymous(req, res)
     res.render('users/register');
 })
 
