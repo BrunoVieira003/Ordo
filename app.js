@@ -28,7 +28,11 @@ app.use(express.urlencoded({'extended':true}))
 app.use(methodOverride('_method'))
 
 // Session config
-app.use(session({secret: "mysecretkey"}))
+app.use(session({
+    secret: "mysecretkey",
+    resave: false,
+    cookie: { maxAge: 30 * 60 * 1000 } // 30 min
+}))
 
 // Modal messages config
 app.use((req, res, next)=>{

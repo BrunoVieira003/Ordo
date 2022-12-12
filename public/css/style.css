@@ -252,6 +252,10 @@ form > a:hover{
     color: var(--primary-color);
 }
 
+.dashboard-nav h1{
+    text-align: center;
+}
+
 .dashboard-nav > nav{
     margin-top: 20vh;
 }
@@ -259,6 +263,7 @@ form > a:hover{
 .nav-opt{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 2vw;
     text-decoration: none;
     color: var(--primary-color);
@@ -276,6 +281,12 @@ form > a:hover{
 
 .nav-opt i{
     display: none;
+}
+
+hr.solid{
+    border: 1px solid rgba(255, 255, 255, 0.281);
+    width: 140%;
+    margin: 3vh -20%;
 }
 
 .dashboard-page{
@@ -301,6 +312,14 @@ form > a:hover{
 
     #menu-controller{
         display: none;
+    }
+
+    .dashboard-nav h1{
+        text-align: left;
+    }
+
+    .nav-opt{
+        justify-content: start;
     }
 
     .nav-opt i{

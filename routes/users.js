@@ -29,7 +29,6 @@ router.post('/login', async (req, res, next)=>{
 })
 
 router.get('/register', (req, res, next)=>{
-    only_anonymous(req, res)
     res.render('users/register');
 })
 
@@ -60,6 +59,13 @@ router.post('/register', async (req, res, next)=>{
         }
     }
     
+})
+
+router.get('/logout', (req, res, next)=>{
+    if (req.session) {
+        req.session.destroy()
+        res.redirect('/login')
+    }
 })
 
 module.exports = router
