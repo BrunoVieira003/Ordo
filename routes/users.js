@@ -68,4 +68,8 @@ router.get('/logout', (req, res, next)=>{
     }
 })
 
+router.get('/account', (req, res, next)=>{
+    res.render('dashboard/account')
+})
+
 module.exports = router

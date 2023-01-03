@@ -247,7 +247,7 @@ form > a:hover{
     display: flex;
     flex-direction: column;
     height: 100vh;
-    padding: 2vh 4vw;
+    padding: 2vh 2vw;
     background-color: var(--dashboard-nav-color);
     color: var(--primary-color);
 }
@@ -257,7 +257,10 @@ form > a:hover{
 }
 
 .dashboard-nav > nav{
+    display: flex;
+    flex-direction: column;
     margin-top: 20vh;
+    row-gap: 3vh;
 }
 
 .nav-opt{
@@ -285,14 +288,21 @@ form > a:hover{
 
 hr.solid{
     border: 1px solid rgba(255, 255, 255, 0.281);
-    width: 140%;
-    margin: 3vh -20%;
+    width: 100%;
+    margin: 1vh -1%;
 }
 
 .dashboard-page{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
-    margin-top: 10vh;
+    margin: 10vh 0 0 5vw;
+}
+
+.dashboard-page > h1{
+    text-align: start;
+    margin-bottom: 2vh;
 }
 
 @media (min-width:640px) {
@@ -324,6 +334,11 @@ hr.solid{
 
     .nav-opt i{
         display: inline;
+    }
+
+    hr.solid{
+        width: 140%;
+        margin: 1vh -20%;
     }
 }
 
