@@ -39,6 +39,21 @@ a{
   color: var(--primary-color);
 }
 
+h1{
+  text-align: center;
+  font-size: calc(2rem + 1vw);
+}
+
 p{
   color: var(--text-color);
+  font-size: calc(1.3rem + 0.2vw);
+}
+
+label{
+  color: var(--label-text-color);
+  font-size: calc(1rem + 0.2vw);
+}
+
+input{
+  font-size: calc(1rem + 0.2vw);
 }

@@ -1,0 +1,44 @@
+.RegisterForm form{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--form-bg-color);
+    width: fit-content;
+    padding: 20px;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.RegisterForm label{
+    margin-bottom: 16px;
+}
+
+.RegisterForm input{
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--input-bg-color);
+    outline: 1px transparent;
+    transition: all .1s;
+
+}
+
+.RegisterForm input:focus{
+    background-color: var(--input-focus-bg-color);
+    outline: 1px solid var(--primary-color);
+}
+
+.RegisterForm input[type=submit]{
+    width: fit-content;
+    align-self: center;
+    padding: 10px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    outline: 1px transparent;
+}
+
+.RegisterForm input[type=submit]:hover,
+.RegisterForm input[type=submit]:focus{
+    outline: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+}
