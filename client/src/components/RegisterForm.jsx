@@ -1,5 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './RegisterForm.module.css'
+import Input from './form/Input'
+import Submit from './form/Submit'
 
 function RegisterForm(props){
     function registerUser(e){
@@ -20,6 +23,7 @@ function RegisterForm(props){
         })
         .then(resp => resp.json())
         .then(data => console.log(data))
+        .then((res) => navigate('/'))
         .catch((err) => console.log(err))
     }
 
@@ -28,43 +32,45 @@ function RegisterForm(props){
     const [password, setPassword] = useState()
     const [confirmPassword, setConfirmPassword] = useState()
 
+    const navigate = useNavigate()
+
     return (
         <div className={styles.RegisterForm}>
             <h1>Criar conta</h1>
             <form onSubmit={registerUser}>
-                <label htmlFor='username'>Nome de usuário</label>
-                <input 
+                <Input
+                text="Nome de usuário"
                 type="text"
                 name='username'
                 id='username'
                 onChange={(e) => setUsername(e.target.value)}
                 />
 
-                <label htmlFor='email'>Email</label>
-                <input 
+                <Input
+                text="Email"
                 type="email"
                 name='email'
                 id='email'
                 onChange={(e) => setEmail(e.target.value)}
                 />
 
-                <label htmlFor="password">Senha</label>
-                <input 
+                <Input
+                text="Senha"
                 type="password"
                 name='password' 
                 id='password'
                 onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <label htmlFor='confirmPassword'>Confirmar senha</label>
-                <input
+                <Input
+                text="Confirmar senha"
                 type="password"
                 name='confirmPassword'
                 id='confirmPassword'
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 />
 
-                <input type='submit' />
+                <Submit/>
             </form>
         </div>
     )

@@ -1,0 +1,26 @@
+.Input{
+    display: flex;
+    flex-direction: column;
+}
+
+.Input label{
+    margin-bottom: 16px;
+}
+
+.Input input{
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: none;
+    color: var(--label-text-color);
+    background-color: var(--input-bg-color);
+    outline: 1px transparent;
+    transition: all .1s;
+    padding: 10px;
+
+}
+
+.Input input:focus{
+    background-color: var(--input-focus-bg-color);
+    outline: 1px solid var(--primary-color);
+    color: var(--text-color);
+}
