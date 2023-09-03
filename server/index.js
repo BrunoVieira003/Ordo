@@ -36,7 +36,11 @@ app.post('/register', async (req, res)=>{
 
         res.send(newUser)
     }
-    res.send({'message': 'failed'})
+    res.send({
+        error: {
+            type: 'userAlreadyExists'
+        }
+    })
 
 })
 

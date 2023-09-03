@@ -6,8 +6,10 @@ import Submit from './form/Submit'
 
 function RegisterForm(props){
 
-    const { register, handleSubmit, formState: {errors} } = useForm()
+    const { register, handleSubmit, watch, formState: {errors} } = useForm()
     const navigate = useNavigate()
+
+    const watchPassword = watch('password')
 
     function onSubmit(data){
 
@@ -72,7 +74,8 @@ function RegisterForm(props){
                 name='passwordConfirm'
                 register={register}
                 validation={{
-                    required: 'Confirme sua senha'
+                    required: 'Confirme sua senha',
+                    validate: (value) => value == watchPassword || 'A senhas devem ser iguais'
                 }}
                 errors={errors}
                 />

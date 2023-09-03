@@ -12,8 +12,9 @@ function Input({name, type, label, register, validation, errors}){
             {...register(name, validation)}
             />
             {errors && errors[name]?.type === "required" && (
-                <span className="error">{errors[name]?.message}</span>
-    )}
+                <span className="error">{errors[name]?.message}</span>)}
+            {errors && errors[name]?.type === "validate" && (
+                <span className="error">{errors[name]?.message}</span>)}
         </div>
     )
 }
