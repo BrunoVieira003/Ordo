@@ -1,6 +1,7 @@
 .Input{
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 .Input label{
@@ -8,7 +9,6 @@
 }
 
 .Input input{
-    margin-bottom: 30px;
     border-radius: 5px;
     border: none;
     color: var(--label-text-color);
@@ -23,4 +23,9 @@
     background-color: var(--input-focus-bg-color);
     outline: 1px solid var(--primary-color);
     color: var(--text-color);
+}
+
+.Input span{
+    margin-top: 10px;
+    color: var(--error-color);
 }

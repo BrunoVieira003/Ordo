@@ -1,15 +1,19 @@
 import styles from './Input.module.css'
+import { useForm } from 'react-hook-form'
 
-function Input({name, type, text, onChange}){
+function Input({name, type, label, register, validation, errors}){
+    
+
     return (
         <div className={styles.Input}>
-            <label htmlFor={name}>{text}</label>
+            <label htmlFor={name}>{label}</label>
             <input
             type={type}
-            name={name}
-            id={name}
-            onChange={onChange}
+            {...register(name, validation)}
             />
+            {errors && errors[name]?.type === "required" && (
+                <span className="error">{errors[name]?.message}</span>
+    )}
         </div>
     )
 }

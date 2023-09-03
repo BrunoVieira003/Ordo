@@ -1,21 +1,19 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 import styles from './RegisterForm.module.css'
 import Input from './form/Input'
 import Submit from './form/Submit'
 
 function RegisterForm(props){
-    function registerUser(e){
-        e.preventDefault()
+
+    const { register, handleSubmit, formState: {errors} } = useForm()
+    const navigate = useNavigate()
+
+    function onSubmit(data){
 
         fetch('/register', {
             method: 'POST',
-            body: JSON.stringify({
-                username: username,
-                email: email,
-                password: password,
-                confirmPassword: confirmPassword
-              }),
+            body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -27,47 +25,56 @@ function RegisterForm(props){
         .catch((err) => console.log(err))
     }
 
-    const [username, setUsername] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
-    const [confirmPassword, setConfirmPassword] = useState()
-
-    const navigate = useNavigate()
-
     return (
         <div className={styles.RegisterForm}>
             <h1>Criar conta</h1>
-            <form onSubmit={registerUser}>
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                handleSubmit(onSubmit)()
+                } }>
+                    
                 <Input
-                text="Nome de usuário"
+                label="Nome de usuário"
                 type="text"
                 name='username'
-                id='username'
-                onChange={(e) => setUsername(e.target.value)}
+                register={register}
+                validation={{
+                    required: 'Escolha um nome de usuário'
+                }}
+                errors={errors}
                 />
-
+                    
                 <Input
-                text="Email"
+                label="Email"
                 type="email"
                 name='email'
-                id='email'
-                onChange={(e) => setEmail(e.target.value)}
+                register={register}
+                validation={{
+                    required: 'Insira um email válido'
+                }}
+                errors={errors}
                 />
-
+                    
                 <Input
-                text="Senha"
+                label="Senha"
                 type="password"
-                name='password' 
-                id='password'
-                onChange={(e) => setPassword(e.target.value)}
+                name='password'
+                register={register}
+                validation={{
+                    required: 'Escolha uma senha'
+                }}
+                errors={errors}
                 />
-
+                    
                 <Input
-                text="Confirmar senha"
+                label="Confirmar senha"
                 type="password"
-                name='confirmPassword'
-                id='confirmPassword'
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                name='passwordConfirm'
+                register={register}
+                validation={{
+                    required: 'Confirme sua senha'
+                }}
+                errors={errors}
                 />
 
                 <Submit/>
