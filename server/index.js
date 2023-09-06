@@ -34,11 +34,12 @@ app.post('/register', async (req, res)=>{
             password: password
         })
 
-        res.send(newUser)
+        res.status(201).send(newUser)
     }
-    res.send({
+    res.status(409).send({
+
         error: {
-            type: 'userAlreadyExists'
+            type: 'username-conflict'
         }
     })
 
