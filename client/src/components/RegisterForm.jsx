@@ -11,6 +11,18 @@ function RegisterForm(props){
 
     const watchPassword = watch('password')
 
+    async function usernameAvailable(value){
+        const res = await fetch(`/checkname/${value}`)
+        const data = await res.json()
+        return data?.status == 'available' || 'Nome de usuário já está em uso'
+    }
+
+    async function emailAvailable(value){
+        const res = await fetch(`/checkemail/${value}`)
+        const data = await res.json()
+        return data?.status == 'available' || 'Esse email já está vinculado a uma conta'
+    }
+
     function onSubmit(data){
 
         fetch('/register', {
@@ -22,7 +34,6 @@ function RegisterForm(props){
             }
         })
         .then(resp => resp.json())
-        .then(data => console.log(data))
         .then((res) => navigate('/'))
         .catch((err) => console.log(err))
     }
@@ -41,7 +52,8 @@ function RegisterForm(props){
                 name='username'
                 register={register}
                 validation={{
-                    required: 'Escolha um nome de usuário'
+                    required: 'Escolha um nome de usuário',
+                    validate: usernameAvailable
                 }}
                 errors={errors}
                 />
@@ -52,7 +64,8 @@ function RegisterForm(props){
                 name='email'
                 register={register}
                 validation={{
-                    required: 'Insira um email válido'
+                    required: 'Insira um email válido',
+                    validate: emailAvailable
                 }}
                 errors={errors}
                 />
@@ -71,7 +84,7 @@ function RegisterForm(props){
                 <Input
                 label="Confirmar senha"
                 type="password"
-                name='passwordConfirm'
+                name='confirmPassword'
                 register={register}
                 validation={{
                     required: 'Confirme sua senha',

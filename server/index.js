@@ -35,14 +35,47 @@ app.post('/register', async (req, res)=>{
         })
 
         res.status(201).send(newUser)
+    }else{
+        res.status(409).send({
+    
+            error: {
+                type: 'username-conflict'
+            }
+        })
     }
-    res.status(409).send({
 
-        error: {
-            type: 'username-conflict'
+})
+
+app.get('/checkname/:username', async (req, res) => {
+    const { username } = req.params
+
+    const user = await User.findOne({
+        where:{
+            name: username
         }
     })
 
+    if (user){
+        res.send({status: 'taken'})
+    }else{
+        res.send({status: 'available'})
+    }
+})
+
+app.get('/checkemail/:email', async (req, res) => {
+    const { email } = req.params
+
+    const user = await User.findOne({
+        where:{
+            email: email
+        }
+    })
+
+    if (user){
+        res.send({status: 'taken'})
+    }else{
+        res.send({status: 'available'})
+    }
 })
 
 app.listen(PORT, ()=>{
