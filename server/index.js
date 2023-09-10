@@ -19,7 +19,7 @@ const User = require('./models/User');
 const { Op } = require("sequelize")
 
 app.post('/register', async (req, res)=>{
-    const {username, email, password, confirmPassword} = req.body
+    const {username, email, password} = req.body
     const user = await User.findOne({where: {
         [Op.or]: [
             {name: username},
@@ -27,7 +27,7 @@ app.post('/register', async (req, res)=>{
         ],
     }})
 
-    if (!user && password == confirmPassword){
+    if (!user){
         const newUser = await User.create({
             name: username,
             email: email,
