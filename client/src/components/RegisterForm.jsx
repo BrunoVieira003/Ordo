@@ -75,7 +75,7 @@ function RegisterForm(props){
                 register={register}
                 validation={{
                     required: 'Confirme sua senha',
-                    validate: (value) => value == watchPassword || 'A senhas devem ser iguais'
+                    validate: (value) => value === watchPassword || 'A senhas devem ser iguais'
                 }}
                 errors={errors}
                 />
