@@ -4,8 +4,12 @@ import Input from './form/Input'
 import Submit from './form/Submit'
 import { useForm } from 'react-hook-form'
 
+import { useContext, useEffect } from 'react'
+import UserContext from '../contexts/UserContext'
+
 function LoginForm(props){
-    const { register, handleSubmit, formState: {errors} } = useForm()
+    const { user, setUser } = useContext(UserContext)
+    const { register, handleSubmit, formState: {errors}, reset } = useForm()
     const navigate = useNavigate()
 
     async function userExists(value){
@@ -31,7 +35,9 @@ function LoginForm(props){
             return Promise.reject(resp)
             
         })
-        .then(data => console.log(data))
+        .then(data => {
+            setUser(data)
+        })
         .then(() => navigate('/'))
         .catch((err) => console.log(err))
     }
