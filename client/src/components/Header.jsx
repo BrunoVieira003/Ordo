@@ -7,6 +7,7 @@ function Header(props){
             <h1><Link to='/'>Ordo</Link></h1>
             <nav>
                 <Link to='/register'>Criar conta</Link>
+                <Link to='/login'>Entrar</Link>
             </nav>
         </div>
     )

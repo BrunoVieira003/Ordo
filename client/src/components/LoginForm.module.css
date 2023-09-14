@@ -1,0 +1,9 @@
+.LoginForm form{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--form-bg-color);
+    width: fit-content;
+    padding: 20px;
+    border-radius: 3px;
+    margin: 0 auto;
+}

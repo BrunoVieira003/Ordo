@@ -78,6 +78,31 @@ app.get('/checkemail/:email', async (req, res) => {
     }
 })
 
+
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body
+
+    const user = await User.findOne({
+        where:{
+            email: email
+        }
+    })
+
+    if(user && user.password == password){
+        res.status(200).send({
+            token: user.name.substring(3)
+        })
+    }
+    else{
+        res.status(400).send({
+            error: "400",
+            message: "Incorrect username and password",
+            detail: "Ensure that the username and password included in the request are correct"
+        })
+    }
+})
+
+
 app.listen(PORT, ()=>{
     console.log(`Server running on ${PORT}`)
 })
