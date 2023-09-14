@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
 const PORT = process.env.PORT || 3001
 app = express();
@@ -90,7 +91,7 @@ app.post('/login', async (req, res) => {
 
     if(user && user.password == password){
         res.status(200).send({
-            token: user.name.substring(3)
+            token: jwt.sign(user.toJSON(), "secret")
         })
     }
     else{

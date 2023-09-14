@@ -31,7 +31,8 @@ function LoginForm(props){
             return Promise.reject(resp)
             
         })
-        .then((res) => navigate('/'))
+        .then(data => console.log(data))
+        .then(() => navigate('/'))
         .catch((err) => console.log(err))
     }
 
