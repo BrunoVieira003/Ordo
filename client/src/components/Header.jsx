@@ -16,7 +16,7 @@ function Header(props){
                     <Link to='/login'>Entrar</Link>
                     </>
                 }
-                {user?.token && <button onClick={() => setUser({})}>Logout</button>}
+                {user?.token && <button onClick={() => setUser({})}>Sair</button>}
             </nav>
         </div>
     )

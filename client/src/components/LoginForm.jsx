@@ -9,7 +9,7 @@ import UserContext from '../contexts/UserContext'
 
 function LoginForm(props){
     const { user, setUser } = useContext(UserContext)
-    const { register, handleSubmit, formState: {errors}, reset } = useForm()
+    const { register, handleSubmit, formState: {errors}, setError, reset, clearErrors } = useForm()
     const navigate = useNavigate()
 
     async function userExists(value){
@@ -32,6 +32,8 @@ function LoginForm(props){
             if(resp.ok){
                 return resp.json()
             }
+            setError('form', { type: 'auth', message: 'Email e/ou senha são inválidos' })
+            reset({}, {keepErrors: true, keepValues: true})
             return Promise.reject(resp)
             
         })
@@ -47,8 +49,10 @@ function LoginForm(props){
             <h1>Entrar</h1>
             <form onSubmit={(e) => {
                 e.preventDefault()
+                clearErrors()
                 handleSubmit(onSubmit)()
-                } }>
+            } }>
+                <span>{errors?.form?.message}</span>
                     
                 <Input
                 label="Email"
