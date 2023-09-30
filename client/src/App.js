@@ -9,6 +9,7 @@ import LoginForm from './components/LoginForm';
 import UserContext from './contexts/UserContext';
 import { useState, useEffect } from 'react';
 import ProfilePage from './components/ProfilePage';
+import ProtectedRoute from './components/utils/ProtectedRoute';
 
 function App() { 
 
@@ -27,7 +28,12 @@ function App() {
             <Route exact path='/' element={<LandingPage/>}/>
             <Route exact path='/register' element={<RegisterForm/>}/>
             <Route exact path='/login' element={<LoginForm/>}/>
-            <Route exact path='/profile' element={<ProfilePage/>}/>
+            <Route exact path='/profile' element={
+            <ProtectedRoute>
+              <ProfilePage/>
+            </ProtectedRoute>
+            }/>
+            
           </Routes>
         </Router>
       </UserContext.Provider>
