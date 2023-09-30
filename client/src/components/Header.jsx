@@ -1,22 +1,31 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './Header.module.css'
 import { useContext, useState } from 'react'
 import UserContext from '../contexts/UserContext'
 
 function Header(props){
-    const {user, setUser} = useContext(UserContext)
+    const {token, setToken} = useContext(UserContext)
+    const navigate = useNavigate()
+
+    function logout(){
+        setToken("")
+        navigate('/')
+    }
 
     return (
         <div className={styles.Header}>
             <h1><Link to='/'>Ordo</Link></h1>
             <nav>
-                {!user?.token && 
+                {!token.token && 
                     <>
                     <Link to='/register'>Criar conta</Link>
                     <Link to='/login'>Entrar</Link>
                     </>
                 }
-                {user?.token && <button onClick={() => setUser({})}>Sair</button>}
+                {token.token && <>
+                    <Link to="/profile">Perfil</Link>
+                    <button onClick={() => logout()}>Sair</button>
+                </>}
             </nav>
         </div>
     )

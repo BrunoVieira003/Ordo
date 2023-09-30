@@ -8,7 +8,7 @@ import { useContext, useEffect } from 'react'
 import UserContext from '../contexts/UserContext'
 
 function LoginForm(props){
-    const { user, setUser } = useContext(UserContext)
+    const { token, setToken } = useContext(UserContext)
     const { register, handleSubmit, formState: {errors}, setError, reset, clearErrors } = useForm()
     const navigate = useNavigate()
 
@@ -38,9 +38,9 @@ function LoginForm(props){
             
         })
         .then(data => {
-            setUser(data)
+            setToken({token: data?.token})
         })
-        .then(() => navigate('/'))
+        .then(() => navigate('/profile'))
         .catch((err) => console.log(err))
     }
 

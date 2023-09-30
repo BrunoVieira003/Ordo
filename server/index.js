@@ -103,6 +103,26 @@ app.post('/login', async (req, res) => {
     }
 })
 
+app.get('/user', (req, res) => {
+    const token = req.headers["x-access-token"]
+
+    if(!token) return res.status(401).send({
+        error: "401",
+        message: "A acess token is required",
+        detail: "A acess token is required in request"
+    })
+
+    jwt.verify(token, "secret", (err, decoded) => {
+        if (err) return res.status(500).send({
+            error: "500",
+            message: "Server authentication has failed",
+            detail: "Something went wrong in server authentication"
+        });
+        delete decoded.password
+        res.status(200).send(decoded);
+      })
+
+})
 
 app.listen(PORT, ()=>{
     console.log(`Server running on ${PORT}`)
