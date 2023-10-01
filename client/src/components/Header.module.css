@@ -17,13 +17,13 @@
 
 .Header a{
     text-decoration: none;
+    font-weight: 500;
 }
 
 .Header button{
-    padding: 0;
     font: inherit;
-    border: none;
-    background: none;
     cursor: pointer;
-    color: var(--primary-color); 
+    color: var(--primary-color);
+    font-weight: 500;
+    
 }

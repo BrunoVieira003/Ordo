@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import styles from './Header.module.css'
 import { useContext, useState, useEffect } from 'react'
 import UserContext from '../contexts/UserContext'
+import DropdownMenu from './DropdownMenu'
 
 function Header(props){
     const {token, setToken} = useContext(UserContext)
@@ -45,11 +46,10 @@ function Header(props){
                     <Link to='/register'>Criar conta</Link>
                     </>
                 }
-                {token && 
-                    <>
-                    <Link to="/">{user?.name}</Link>
-                    <button onClick={() => logout()}>Sair</button>
-                    </>
+                {token &&
+                    <DropdownMenu text={user?.name}>
+                        <button onClick={logout}>Sair</button>
+                    </DropdownMenu>
                 }
             </nav>
         </div>
