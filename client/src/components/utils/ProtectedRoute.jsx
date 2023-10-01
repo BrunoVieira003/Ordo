@@ -7,7 +7,7 @@ function ProtectedRoute({children}){
     const navigate = useNavigate()
 
     useEffect(()=>{
-        if (!token.token){
+        if (!token){
             navigate('/login')
         }
     }, [token])

@@ -38,9 +38,9 @@ function LoginForm(props){
             
         })
         .then(data => {
-            setToken({token: data?.token})
+            setToken(data?.token)
         })
-        .then(() => navigate('/profile'))
+        .then(() => navigate('/'))
         .catch((err) => console.log(err))
     }
 

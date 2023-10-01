@@ -7,7 +7,7 @@ import UserContext from '../contexts/UserContext'
 function LandingPage(props){
     const {token} = useContext(UserContext)
 
-    if (token.token) {
+    if (token) {
         return (
             <ProfilePage/>
         )

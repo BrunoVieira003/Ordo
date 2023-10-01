@@ -14,13 +14,13 @@ function Header(props){
     }
 
     useEffect(() => {
-        if (token?.token) {
+        if (token) {
             fetch('/user', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'x-access-token': token.token
+                    'x-access-token': token
                 }
             })
             .then((resp) => {
@@ -39,13 +39,13 @@ function Header(props){
         <div className={styles.Header}>
             <h1><Link to='/'>Ordo</Link></h1>
             <nav>
-                {!token.token && 
+                {!token && 
                     <>
                     <Link to='/login'>Entrar</Link>
                     <Link to='/register'>Criar conta</Link>
                     </>
                 }
-                {token.token && 
+                {token && 
                     <>
                     <Link to="/">{user?.name}</Link>
                     <button onClick={() => logout()}>Sair</button>

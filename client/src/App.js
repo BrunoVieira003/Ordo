@@ -13,11 +13,11 @@ import ProtectedRoute from './components/utils/ProtectedRoute';
 
 function App() { 
 
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')) || {})
+  const [token, setToken] = useState(localStorage.getItem('token') || "")
 
   // Salva o valor de token no localstorage toda vez que o valor é alterado
   useEffect(()=>{
-    localStorage.setItem('token', JSON.stringify(token))
+    localStorage.setItem('token', token)
   }, [token])
 
   return (
