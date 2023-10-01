@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import styles from './RegisterForm.module.css'
 import Input from './form/Input'
@@ -92,7 +92,7 @@ function RegisterForm(props){
                 }}
                 errors={errors}
                 />
-
+                <Link to='/login'>Já possuo uma conta</Link>
                 <Submit/>
             </form>
         </div>

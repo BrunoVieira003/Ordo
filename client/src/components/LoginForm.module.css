@@ -16,3 +16,7 @@
 .LoginForm h1{
     text-align: center;
 }
+
+.LoginForm a{
+    margin-bottom: 30px;
+}

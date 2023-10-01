@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './LoginForm.module.css'
 import Input from './form/Input'
 import Submit from './form/Submit'
@@ -76,6 +76,9 @@ function LoginForm(props){
                 }}
                 errors={errors}
                 />
+
+                <Link to='/register'>Ainda não possuo uma conta</Link>
+
                 <Submit/>
             </form>
 

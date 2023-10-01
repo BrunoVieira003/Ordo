@@ -11,3 +11,7 @@
 .RegisterForm h1{
     text-align: center;
 }
+
+.RegisterForm a{
+    margin-bottom: 30px;
+}
