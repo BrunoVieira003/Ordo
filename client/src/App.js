@@ -28,11 +28,6 @@ function App() {
             <Route exact path='/' element={<LandingPage/>}/>
             <Route exact path='/register' element={<RegisterForm/>}/>
             <Route exact path='/login' element={<LoginForm/>}/>
-            <Route exact path='/profile' element={
-            <ProtectedRoute>
-              <ProfilePage/>
-            </ProtectedRoute>
-            }/>
             
           </Routes>
         </Router>

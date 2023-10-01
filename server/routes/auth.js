@@ -17,6 +17,7 @@ router.post('/login', async (req, res, next) => {
     })
 
     if(user && user.password == password){
+        delete user.password
         res.status(200).send({
             token: jwt.sign(user.toJSON(), secret)
         })

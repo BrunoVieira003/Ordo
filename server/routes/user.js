@@ -82,7 +82,7 @@ router.get('/user', (req, res, next) => {
             message: "Server authentication has failed",
             detail: "Something went wrong in server authentication"
         });
-        delete decoded.password
+        
         res.status(200).send(decoded);
       })
 
