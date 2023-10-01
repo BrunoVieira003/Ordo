@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,8 @@
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.6.0",
     "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
