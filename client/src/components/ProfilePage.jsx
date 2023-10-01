@@ -30,7 +30,7 @@ function ProfilePage(props){
 
     return (
         <div className={styles.ProfilePage}>
-            <h1>Bem vindo, {user?.name}</h1>
+            <h1>Bem vindo, {user?.username}</h1>
         </div>
     )
 }

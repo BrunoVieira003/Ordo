@@ -47,7 +47,7 @@ function Header(props){
                     </>
                 }
                 {token &&
-                    <DropdownMenu text={user?.name}>
+                    <DropdownMenu text={user?.username}>
                         <button onClick={logout}>Sair</button>
                     </DropdownMenu>
                 }

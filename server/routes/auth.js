@@ -10,7 +10,7 @@ const secret = "secret"
 router.post('/login', async (req, res, next) => {
     const { email, password } = req.body
 
-    const user = await User.findOne({
+    const user = await User.findOne({attributes:['id', 'username', 'email', 'password'],
         where:{
             email: email
         }
@@ -18,6 +18,7 @@ router.post('/login', async (req, res, next) => {
 
     if(user && user.password == password){
         delete user.password
+        delete user.email
         res.status(200).send({
             token: jwt.sign(user.toJSON(), secret)
         })

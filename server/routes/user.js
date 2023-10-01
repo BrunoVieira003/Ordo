@@ -11,14 +11,14 @@ router.post('/register', async (req, res, next)=>{
     const {username, email, password} = req.body
     const user = await User.findOne({where: {
         [Op.or]: [
-            {name: username},
+            {username: username},
             {email: email},
         ],
     }})
 
     if (!user){
         const newUser = await User.create({
-            name: username,
+            username: username,
             email: email,
             password: password
         })
@@ -38,9 +38,9 @@ router.post('/register', async (req, res, next)=>{
 router.get('/checkname/:username', async (req, res, next) => {
     const { username } = req.params
 
-    const user = await User.findOne({
+    const user = await User.findOne({attributes:['username'],
         where:{
-            name: username
+            username: username
         }
     })
 
@@ -54,7 +54,7 @@ router.get('/checkname/:username', async (req, res, next) => {
 router.get('/checkemail/:email', async (req, res, next) => {
     const { email } = req.params
 
-    const user = await User.findOne({
+    const user = await User.findOne({attributes:['email'],
         where:{
             email: email
         }
