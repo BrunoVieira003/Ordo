@@ -4,11 +4,11 @@ import Input from './form/Input'
 import Submit from './form/Submit'
 import { useForm } from 'react-hook-form'
 
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import UserContext from '../contexts/UserContext'
 
 function LoginForm(props){
-    const { token, setToken } = useContext(UserContext)
+    const { setToken } = useContext(UserContext)
     const { register, handleSubmit, formState: {errors}, setError, reset, clearErrors } = useForm()
     const navigate = useNavigate()
 

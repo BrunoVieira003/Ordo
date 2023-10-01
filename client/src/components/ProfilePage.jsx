@@ -5,7 +5,7 @@ import styles from './ProfilePage.module.css'
 
 
 function ProfilePage(props){
-    const {token, setToken} = useContext(UserContext)
+    const { token } = useContext(UserContext)
     const [user, setUser] = useState()
 
     useEffect(() => {
@@ -26,7 +26,7 @@ function ProfilePage(props){
         })
         .then(data => setUser(data))
         .catch((err) => console.log(err))
-     }, []);
+     }, [token]);
 
     return (
         <div className={styles.ProfilePage}>

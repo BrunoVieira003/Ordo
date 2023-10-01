@@ -8,8 +8,6 @@ import LoginForm from './components/LoginForm';
 
 import UserContext from './contexts/UserContext';
 import { useState, useEffect } from 'react';
-import ProfilePage from './components/ProfilePage';
-import ProtectedRoute from './components/utils/ProtectedRoute';
 
 function App() { 
 

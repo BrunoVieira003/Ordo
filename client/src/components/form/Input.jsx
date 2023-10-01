@@ -1,5 +1,4 @@
 import styles from './Input.module.css'
-import { useForm } from 'react-hook-form'
 
 function Input({name, type, label, register, validation, errors}){
     

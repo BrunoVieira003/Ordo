@@ -14,13 +14,13 @@ function RegisterForm(props){
     async function usernameAvailable(value){
         const res = await fetch(`/checkname/${value}`)
         const data = await res.json()
-        return data?.status == 'available' || 'Nome de usuário já está em uso'
+        return data?.status === 'available' || 'Nome de usuário já está em uso'
     }
 
     async function emailAvailable(value){
         const res = await fetch(`/checkemail/${value}`)
         const data = await res.json()
-        return data?.status == 'available' || 'Esse email já está vinculado a uma conta'
+        return data?.status === 'available' || 'Esse email já está vinculado a uma conta'
     }
 
     function onSubmit(data){

@@ -3,7 +3,7 @@ import UserContext from '../../contexts/UserContext'
 import { useContext, useEffect } from 'react'
 
 function ProtectedRoute({children}){
-    const {token, setToken} = useContext(UserContext)
+    const { token } = useContext(UserContext)
     const navigate = useNavigate()
 
     useEffect(()=>{
