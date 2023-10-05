@@ -14,7 +14,7 @@ function ProfilePage(props){
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'x-access-token': token
+                'Authorization': 'Bearer ' + token
             }
         })
         .then((resp) => {
