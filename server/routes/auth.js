@@ -7,7 +7,7 @@ const router = express.Router()
 
 const secret = "secret"
 
-router.post('/login', async (req, res, next) => {
+router.post('/signin', async (req, res, next) => {
     const { email, password } = req.body
 
     const user = await User.findOne({attributes:['id', 'username', 'email', 'password'],

@@ -20,7 +20,7 @@ function LoginForm(props){
 
     async function onSubmit(data){
 
-        await fetch('/login', {
+        await fetch('/signin', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
