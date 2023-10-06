@@ -70,8 +70,11 @@ function ProfilePage(props){
                 {tasks.map((task, index)=>(
                     <Task
                         key={index}
+                        id={task.id}
                         title={task.title}
                         description={task.description}
+                        token={token}
+                        afterCallback={loadTasks}
 
                     />
                 ))}

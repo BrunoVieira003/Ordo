@@ -19,7 +19,6 @@ router.get('/tasks', validateToken, async (req, res, next)=>{
 
 router.post('/task', validateToken, async (req, res, next)=>{
     const authorId = req.userInfo.id
-    console.log(authorId)
     const { title, description } = req.body
     
     try{
@@ -36,6 +35,36 @@ router.post('/task', validateToken, async (req, res, next)=>{
             message: 'Something went wrong!'
         })
     }
+    
+})
+
+router.delete('/task/:id', validateToken, async (req, res, next)=>{
+    const { id } = req.params
+
+    if (!id) {
+        res.status(400).json({
+            message: 'Bad request'
+        })
+    }
+
+    const task = await Task.findByPk(id)
+    if (!task){
+        res.status(400).json({
+            message: 'Task not found'
+        })
+    }else{
+        try{
+            const count = Task.destroy({where: {
+                id: id
+            }})
+            res.status(200).json(count)
+        }catch{
+            res.status(500).json({
+                message: 'Something went wrong'
+            })
+        }
+    }
+
     
 })
 
