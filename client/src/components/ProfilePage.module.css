@@ -1,3 +1,31 @@
 .ProfilePage{
     margin: 0 10%;
 }
+
+.TableActions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0 5%;
+    margin: 0 auto;
+    border-radius: 3px;
+    background-color: var(--header-bg-color);
+}
+
+.TableActions > button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: x-large;
+    transition: all .1s;
+}
+
+.TableActions > button:hover,
+.TableActions > button:focus{
+    color: var(--text-color);
+    background-color: transparent;
+}
