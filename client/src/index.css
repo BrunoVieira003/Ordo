@@ -1,7 +1,10 @@
 :root{
   --transparent-hover: rgba(255, 255, 255, 0.07);
   --transparent-click: rgba(255, 255, 255, 0.15);
-  --bg-color: #21222c;
+  --bg-color: #f1f1f1;
+  --text-color: #1b1b1b;
+  --secondary-text-color: #383838;
+  --box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.07);
   --header-text-color: #e56fb2;
   --header-bg-color: #121214;
   --form-bg-color: #141416;
@@ -9,14 +12,13 @@
   --input-bg-color: #252529;
   --input-focus-bg-color: #3b3b42;
   --input-shadow: 0 0 0 0.2rem #e56fb2de;
+  --p-btn-color: #e7e5e5;
+  --p-btn-bg-color: #121214;
   --task-bg-color: #1a1a1d;
-  --text-color: #e7e5e5;
-  --secondary-text-color: #8f8f8f;
-  --primary-color: #e56fb2;
+  --outline-color: rgba(255, 255, 255, 0.192);
   --success-color: #16b177c7;
   --error-color: #e94949c7;
-  --outline-color: rgba(255, 255, 255, 0.192);
-  --box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.07);
+  --primary-color: #e56fb2;
 }
 
 body {

@@ -8,7 +8,7 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-    color: var(--text-color);
+    color: var(--p-btn-color);
     background-color: var(--primary-color);
     outline: 1px transparent;
     transition: all .1s;
