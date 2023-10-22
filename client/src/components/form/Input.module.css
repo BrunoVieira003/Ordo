@@ -1,7 +1,7 @@
 .Input{
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .Input label{
@@ -11,7 +11,7 @@
 .Input input{
     border-radius: 5px;
     border: none;
-    color: var(--label-text-color);
+    color: var(--input-text-color);
     background-color: var(--input-bg-color);
     outline: 1px transparent;
     transition: all .1s;
@@ -22,7 +22,7 @@
 .Input input:focus{
     background-color: var(--input-focus-bg-color);
     outline: 1px solid var(--primary-color);
-    color: var(--text-color);
+    color: var(--input-focus-text-color);
 }
 
 .Input span{

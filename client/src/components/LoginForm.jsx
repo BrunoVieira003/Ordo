@@ -46,12 +46,13 @@ function LoginForm(props){
 
     return (
         <div className={styles.LoginForm}>
-            <h1>Entrar</h1>
+            
             <form onSubmit={(e) => {
                 e.preventDefault()
                 clearErrors()
                 handleSubmit(onSubmit)()
             } }>
+                <h1>Entrar</h1>
                 <span>{errors?.form?.message}</span>
                     
                 <Input

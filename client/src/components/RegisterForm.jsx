@@ -40,11 +40,11 @@ function RegisterForm(props){
 
     return (
         <div className={styles.RegisterForm}>
-            <h1>Criar conta</h1>
             <form onSubmit={(e) => {
                 e.preventDefault()
                 handleSubmit(onSubmit)()
                 } }>
+                <h1>Criar conta</h1>
                     
                 <Input
                 label="Nome de usuário"

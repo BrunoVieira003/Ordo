@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.LandingPage > h1{
+    color: var(--title-color);
+}
+
 .LandingPage a{
     padding: 10px;
     border-radius: 5px;
@@ -10,7 +14,7 @@
     text-decoration: none;
     font-weight: 600;
     font-size: xx-large;
-    background-color: var(--primary-color);
+    background-color: var(--p-btn-bg-color);
     outline: 1px transparent;
     transition: all .1s;
 }

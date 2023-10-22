@@ -3,22 +3,26 @@
   --transparent-click: rgba(255, 255, 255, 0.15);
   --bg-color: #f1f1f1;
   --text-color: #1b1b1b;
+  --title-color: var(--primary-color);
   --secondary-text-color: #383838;
   --box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.07);
-  --header-text-color: #e56fb2;
+  --header-text-color: var(--primary-color);
   --header-bg-color: #121214;
   --form-bg-color: #141416;
   --label-text-color: #adadad;
   --input-bg-color: #252529;
+  --input-text-color: #919191;
+  --input-focus-text-color: #f1f1f1;
   --input-focus-bg-color: #3b3b42;
   --input-shadow: 0 0 0 0.2rem #e56fb2de;
   --p-btn-color: #e7e5e5;
-  --p-btn-bg-color: #121214;
+  --p-btn-bg-color: var(--primary-color);
   --task-bg-color: #1a1a1d;
   --outline-color: rgba(255, 255, 255, 0.192);
   --success-color: #16b177c7;
   --error-color: #e94949c7;
-  --primary-color: #e56fb2;
+  --primary-color: #c06fe5;
+  --secondary-color: #e56fb2;
 }
 
 body {
